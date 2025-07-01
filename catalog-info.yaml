@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ls60iopem-nodejs-gitops
+  description: This is GitOps manifest for ls60iopem-nodejs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=ls60iopem-nodejs
+    backstage.io/kubernetes-id: ls60iopem-nodejs 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: ls60iopem-nodejs
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:ls60iopem-nodejs
